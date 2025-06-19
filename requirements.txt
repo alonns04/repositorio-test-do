@@ -1,5 +1,4 @@
 gunicorn==20.0.4
-MarkupSafe==1.1.1
 aiohappyeyeballs==2.6.1
 aiohttp==3.12.0
 aiohttp-retry==2.9.1
