@@ -3,6 +3,8 @@ from utils.actions import ask_groq_chat
 from flask import Flask, request, Response
 from utils.actions import send_whatsapp_text
 import logging
+logging.basicConfig(level=logging.DEBUG)
+
 
 app = Flask(__name__)
 
