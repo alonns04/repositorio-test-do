@@ -1,30 +1,24 @@
 import os
-from langchain_groq import ChatGroq
-from langchain.prompts import PromptTemplate
-from dotenv import load_dotenv, find_dotenv
-import os
 import pickle
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+
+from dotenv import load_dotenv, find_dotenv
+from langchain.prompts import PromptTemplate
+from langchain.retrievers import ParentDocumentRetriever
 from langchain.schema import Document
 from langchain.storage import InMemoryByteStore
-from langchain.retrievers import ParentDocumentRetriever
-import os
-import pickle
-from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.storage import InMemoryByteStore
-from langchain.retrievers import ParentDocumentRetriever
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import os
+from langchain_chroma import Chroma
+from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings
 from twilio.rest import Client
-from dotenv import load_dotenv
-import os
+
 
 load_dotenv(find_dotenv())
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+ACCOUNT_SID   = os.getenv("ACCOUNT_SID")
+AUTH_TOKEN    = os.getenv("AUTH_TOKEN")
+WHATSAPP_FROM = os.getenv("WHATSAPP_FROM")  # p. ej. "whatsapp:+14155238886"
 
 if not GROQ_API_KEY:
     raise ValueError("Define la variable de entorno GROQ_API_KEY con tu API key de Groq")
@@ -64,9 +58,6 @@ def ask_groq_chat(context: str, question_human: str) -> str:
 
 
 
-ACCOUNT_SID   = os.getenv("ACCOUNT_SID")
-AUTH_TOKEN    = os.getenv("AUTH_TOKEN")
-WHATSAPP_FROM = os.getenv("WHATSAPP_FROM")  # p. ej. "whatsapp:+14155238886"
 
 if not all([ACCOUNT_SID, AUTH_TOKEN, WHATSAPP_FROM]):
     raise ValueError(
