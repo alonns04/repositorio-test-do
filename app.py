@@ -1,7 +1,7 @@
-from utils.retriever import get_retriever
-from utils.groq_client import ask_groq_chat
+from utils.actions import get_retriever
+from utils.actions import ask_groq_chat
 from flask import Flask, request, Response
-from utils.twilio_client import send_whatsapp_text
+from utils.actions import send_whatsapp_text
 import logging
 
 app = Flask(__name__)
