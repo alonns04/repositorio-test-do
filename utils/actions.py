@@ -73,7 +73,7 @@ def send_whatsapp_text(body: str, to) -> None:
     - `body`: el contenido del mensaje que quieras enviar (string).
     Usa los números definidos en TWILIO_WHATSAPP_FROM y WHATSAPP_TO.
     """
-	print(to)
+    print(to)
     # Asegurarse que empieza con whatsapp:+
     if not to.startswith("whatsapp:+"):
         to = "whatsapp:+" + to.lstrip("whatsapp:").lstrip("+")  # Repara el formato
