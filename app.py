@@ -37,7 +37,7 @@ def whatsapp_webhook():
         logging.debug("Preguntando a ask_groq_chat...")
         response = ask_groq_chat(context=context, question_human=question_human)
         logging.debug(f"Respuesta generada: {response}")
-
+        print(response)
         logging.debug("Enviando texto por WhatsApp...")
         send_whatsapp_text(body=f"{response}", to=from_number)
         logging.debug("Texto enviado exitosamente.")
